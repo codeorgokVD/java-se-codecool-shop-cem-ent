@@ -20,6 +20,11 @@
         </plugins>
     </build>
 
+    <properties>
+        <slf4j.version>1.6.4</slf4j.version>
+        <logback.version>1.0.1</logback.version>
+    </properties>
+
     <!-- library dependencies -->
     <dependencies>
         <dependency>
@@ -57,5 +62,8 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>RELEASE</version>
         </dependency>
+
+
+
     </dependencies>
 </project>
