@@ -4,6 +4,9 @@ import com.codecool.shop.model.ProductCategory;
 
 import java.util.List;
 
+/**
+ * ProductCategoryDao interface that must be implemented
+ */
 public interface ProductCategoryDao {
 
     void add(ProductCategory category);

@@ -14,6 +14,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CartController {
+    /**
+     * Singleton. Creates the object if it is not exists.
+     * Returns the one and only object of the class.
+     */
 
     private static CartController instance = null;
     private CartController() {}
@@ -25,6 +29,12 @@ public class CartController {
         return instance;
     }
 
+    /**
+     * This method controls the item adding to the cart.
+     * @param req request parameter
+     * @param res response parameter
+     * @return JSONObject
+     */
     public JSONObject addItemToCart(Request req, Response res) {
         int addedProductId = Integer.parseInt(req.params(":id"));
         ProductDao productDataStore = new ProductDaoJdbc();
@@ -39,6 +49,12 @@ public class CartController {
         return jsonObj;
     }
 
+    /**
+     * Renders cart with cartview.html
+     * @param req request parameter
+     * @param res response parameter
+     * @return ModelAndView object
+     */
     public ModelAndView renderCart(Request req, Response res) {
         Cart cartDataStore = getCart(req);
         Map<String, Object> params = new HashMap<>();
@@ -47,6 +63,11 @@ public class CartController {
         return new ModelAndView(params, "cartview");
     }
 
+    /**
+     * Singleton.If cart is not existing then it creates a new cart object.
+     * @param req request parameter
+     * @return Cart object
+     */
     public Cart getCart(Request req) {
         Cart cart = req.session().attribute("cart");
         if (cart == null) {

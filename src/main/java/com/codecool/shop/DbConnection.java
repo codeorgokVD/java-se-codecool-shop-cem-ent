@@ -8,9 +8,19 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This class controls the connection to the database
+ * based on login data stored in connection.properties.
+ */
 
 public class DbConnection {
 
+    /**
+     * This method reads the login data from the file and creates variables with the proper values
+     * @return DriverManager.getConnection object with login data
+     * @throws IOException throws when file not found
+     * @throws SQLException throws when connection can't be returned
+     */
     public Connection getConnection() throws IOException, SQLException {
 
         BufferedReader br = new BufferedReader(new FileReader("src/main/resources/connection.properties"));
@@ -25,6 +35,10 @@ public class DbConnection {
                 DB_PASSWORD);
     }
 
+    /**
+     * Tries to execute query which is stored in a string.
+     * @param query string that contains the query
+     */
     public void executeQuery(String query) {
         try (Connection connection = getConnection();
              Statement statement =connection.createStatement();

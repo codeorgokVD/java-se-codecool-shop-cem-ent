@@ -15,11 +15,25 @@ import spark.Response;
 import spark.TemplateEngine;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
+/**
+ * The codecool-shop-cement program is an online webshop implementation
+ *  @author Varga Dávid
+ *  @author Száraz Dénes
+ *  @author Skoda Fanni
+ *  @author Radó Kristóf
+ *  @version 1.0
+ *  @since 2017.04.01.
+ */
+
 public class Main {
 
 
 
     public static void main(String[] args) {
+        /**
+         * This method controls the flow of the program.
+         * It is also renders templates.
+         */
 
         TemplateEngine templateEngine = new ThymeleafTemplateEngine();
         CartController cartController = CartController.getInstance();

@@ -3,6 +3,9 @@ package com.codecool.shop.dao;
 import com.codecool.shop.model.User;
 import java.util.List;
 
+/**
+ * UserDao interface that must be implemented
+ */
 public interface UserDao {
 
     void add(User user);

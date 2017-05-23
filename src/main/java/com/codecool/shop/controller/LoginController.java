@@ -12,6 +12,10 @@ import java.util.Map;
 
 public class LoginController {
 
+    /**
+     * Singleton. Creates the object if it is not exists.
+     * Returns the one and only object of the class.
+     */
     private static LoginController instance = null;
     private LoginController() {}
 
@@ -22,6 +26,12 @@ public class LoginController {
         return instance;
     }
 
+    /**
+     * Renders login with login.html
+     * @param req request parameter
+     * @param res response parameter
+     * @return ModelAndView object
+     */
     public ModelAndView renderLogin(Request req, Response res) {
         UserDaoMem userDataStore = UserDaoMem.getInstance();
 
@@ -30,6 +40,12 @@ public class LoginController {
         return new ModelAndView(params, "login");
     }
 
+    /**
+     * This method checks the login attempt. If the user passed the right values then the user can log in.
+     * @param req request parameter
+     * @param res response parameter
+     * @return renderLogin call
+     */
     public ModelAndView renderLoginPost(Request req, Response res){
         UserDaoMem userDataStore = UserDaoMem.getInstance();
         User user = userDataStore.find(req.queryParams("username"));
